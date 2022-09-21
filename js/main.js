@@ -16,31 +16,34 @@ $(window).on("scroll", function () {
 		$("header").removeClass("nav-shadow");
 	}
 });
+
 let navDropdownClose = "nav_item_dropdown nav_item_dropdown_close";
 let navDropdownOpen = "nav_item_dropdown nav_item_dropdown_open";
 const navItem = document.querySelectorAll(".nav_item");
-const navItemDropdown = document.getElementsByClassName("nav_item_dropdown");
-navItem.forEach((element) => {
-	let button = element.getElementsByClassName("nav_link")[0];
-	button.addEventListener("click", function () {
-		let itemClass = this.nextElementSibling.className;
-		console.log(navItemDropdown.length);
-		for (i = 0; i < navItemDropdown.length; i++) {
-			console.log(navItemDropdown[i].className);
-			navItemDropdown[i].className = navDropdownClose;
-		}
-		if (itemClass === navDropdownClose) {
-			this.nextElementSibling.className = navDropdownOpen;
-		}
-	});
+// let arrowUp = new Image();
+// arrowUp.src = "../images/icon-arrow-dark.svg";
+// arrowUp.style = "width:10px; height:10px; transform:rotate(180deg)";
+
+window.addEventListener("resize", (event) => {
+	var width = Math.max(window.screen.width, window.innerWidth);
+	console.log(width);
+	if (width <= 767) {
+		const navItemDropdown =
+			document.getElementsByClassName("nav_item_dropdown");
+		navItem.forEach((element) => {
+			let button = element.getElementsByClassName("nav_item_content")[0];
+			let child = button.getElementsByClassName("nav_item_arrow")[0];
+			button.addEventListener("click", function () {
+				let itemClass = this.nextElementSibling.className;
+				for (i = 0; i < navItemDropdown.length; i++) {
+					navItemDropdown[i].className = navDropdownClose;
+					child.className = "nav_item_arrow";
+				}
+				if (itemClass === navDropdownClose) {
+					this.nextElementSibling.className = navDropdownOpen;
+					child.className = "nav_item_arrow arrow_up";
+				}
+			});
+		});
+	}
 });
-
-function toggleNav() {}
-
-// for (i = 0; i < accordion.length; i++) {
-// 	let button = accordion[i].getElementsByClassName("nav_link")[0];
-// 	button.addEventListener("click", function () {
-// 		let dropdown = this.nextElementSibling;
-// 		dropdown.classList.toggle("nav_item_dropdown_active");
-// 	});
-// }

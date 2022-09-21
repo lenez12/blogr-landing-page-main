@@ -149,16 +149,18 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	/* align-items: center; */
 	margin-bottom: 2rem;
+	align-self: center;
 }
 
 .nav_link {
 	font-size: 1.1rem;
 	font-weight: 700;
 	position: relative;
+	align-self: center;
 }
-
+/* 
 .nav_link::after {
 	content: url(../images/icon-arrow-dark.svg);
 	display: inline-block;
@@ -171,6 +173,26 @@ body {
 	display: inline-block;
 	position: absolute;
 	right: -20px;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+} */
+
+.nav_item_content {
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.nav_item_arrow {
+	width: 13px;
+	background-repeat: no-repeat;
+	object-fit: contain;
+	margin-left: 10px;
+}
+
+.nav_item_arrow.arrow_up {
+	background-repeat: no-repeat;
+	object-fit: contain;
 	transform: rotate(180deg);
 	-webkit-transform: rotate(180deg);
 }
@@ -442,6 +464,10 @@ body {
 		right: -20px;
 		transform: rotate(180deg);
 		-webkit-transform: rotate(180deg);
+	}
+
+	.nav_item_arrow {
+		display: none;
 	}
 	.nav_menu {
 		border-radius: 0.3rem;
