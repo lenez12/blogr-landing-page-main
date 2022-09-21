@@ -10,7 +10,7 @@ if (navToggle) {
 }
 
 $(window).on("scroll", function () {
-	if ($(window).scrollTop() > 200) {
+	if ($(window).scrollTop() > 500) {
 		$("header").addClass("nav-shadow");
 	} else {
 		$("header").removeClass("nav-shadow");
@@ -28,6 +28,8 @@ var width = Math.max(window.screen.width, window.innerWidth);
 window.addEventListener("resize", (event) => {
 	width = Math.max(window.screen.width, window.innerWidth);
 });
+
+console.log(width);
 
 const navItemDropdown = document.getElementsByClassName("nav_item_dropdown");
 navItem.forEach((element) => {

@@ -24,8 +24,8 @@
 	--body-font: "Overpass", sans-serif;
 
 	/* box-shadows */
-	--light-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-	--dark-box-shadow: 4px 4px 10px rgb(216, 216, 216);
+	--light-box-shadow: 2px 2px 5px rgb(156, 156, 156);
+	--dark-box-shadow: 4px 4px 10px rgb(59, 59, 59);
 	/*========== z index ==========*/
 	--z-tooltip: 10;
 	--z-fixed: 100;
@@ -52,7 +52,7 @@ body {
 /*==================== REUSABLE CSS CLASSES ====================*/
 
 .section {
-	padding: 6rem 0 4rem;
+	padding: 6rem 2rem 4rem;
 }
 
 .devider-x {
@@ -136,7 +136,7 @@ body {
 		left: 5%;
 		right: 5%;
 		display: none;
-		overflow: scroll;
+		overflow: hidden;
 		max-height: 70vh;
 	}
 }
@@ -351,7 +351,7 @@ body {
 .home_content {
 	flex-direction: column;
 	align-items: center;
-	padding: 6rem 3rem 0;
+	padding-top: 6rem;
 	color: var(--white-color);
 }
 
@@ -371,6 +371,43 @@ body {
 	display: flex;
 	margin-bottom: 5rem;
 	justify-content: center;
+}
+
+/* FUTURE */
+
+.future_content {
+	gap: 3rem;
+	justify-items: center;
+	justify-content: center;
+}
+
+.future h2 {
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	color: var(--very-dark-blue-primary-color);
+	margin-bottom: 2rem;
+}
+
+.future h3 {
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.4rem;
+	color: var(--very-dark-blue-primary-color);
+	margin-bottom: 1rem;
+}
+
+.future p {
+	color: var(--very-dary-grayish-blue-color);
+	word-spacing: 2px;
+	line-height: 1.5rem;
+	text-align: center;
+}
+
+.future img {
+	content: url("../images/illustration-editor-mobile.svg");
+	height: 20rem;
+	/* justify-self: center; */
 }
 
 @media screen and (max-width: 375px) {
@@ -411,10 +448,6 @@ body {
 				var(--light-gradient-red-color),
 				var(--very-light-red-gradient-color)
 			);
-	}
-
-	.section {
-		padding: 6rem 0 2rem;
 	}
 
 	.nav {
@@ -532,6 +565,72 @@ body {
 				var(--light-gradient-red-color),
 				var(--very-light-red-gradient-color)
 			);
+	}
+
+	/* Future  */
+
+	.future {
+		padding: 8rem 8rem 8rem;
+		overflow: hidden;
+	}
+
+	.future_content {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas:
+			"future-content-1 future-img"
+			"future-content-2 future-img";
+		gap: 3rem;
+	}
+
+	#future-img {
+		grid-area: future-img;
+	}
+
+	#future-content-1 {
+		grid-area: future-content-1;
+	}
+
+	#future-content-2 {
+		grid-area: future-content-2;
+	}
+
+	.future h2 {
+		text-align: center;
+		font-weight: 700;
+		font-size: 2rem;
+		color: var(--very-dark-blue-primary-color);
+		margin-bottom: 4rem;
+	}
+
+	.future h3 {
+		text-align: start;
+		font-weight: 700;
+		font-size: 1.4rem;
+		color: var(--very-dark-blue-primary-color);
+		margin-bottom: 1rem;
+	}
+
+	.future p {
+		color: var(--very-dary-grayish-blue-color);
+		word-spacing: 2px;
+		line-height: 1.8rem;
+		text-align: start;
+		font-size: 0.8;
+	}
+
+	.future_image_content {
+		position: relative;
+	}
+
+	.future img {
+		content: url("../images/illustration-editor-desktop.svg");
+		height: 55rem;
+		object-fit: contain;
+		position: absolute;
+		top: -60%;
+		left: -10rem;
+		z-index: -1;
 	}
 }
 .testing {
