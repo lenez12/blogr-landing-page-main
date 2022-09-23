@@ -39,13 +39,24 @@ navItem.forEach((element) => {
 		button.addEventListener("click", function () {
 			let itemClass = this.nextElementSibling.className;
 			for (i = 0; i < navItemDropdown.length; i++) {
+				child.className = "nav_item_arrow arrow_down";
 				navItemDropdown[i].className = navDropdownClose;
-				child.className = "nav_item_arrow";
+				// console.log(child);
+				// console.log("is this triggered " + i);
 			}
 			if (itemClass === navDropdownClose) {
 				this.nextElementSibling.className = navDropdownOpen;
 				child.className = "nav_item_arrow arrow_up";
+				// console.log(child);
 			}
 		});
+	}
+});
+
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(document.querySelectorAll("*"), function (el) {
+	if (el.offsetWidth > docWidth) {
+		console.log(el);
 	}
 });

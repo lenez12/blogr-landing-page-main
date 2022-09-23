@@ -47,6 +47,7 @@ a {
 body {
 	font-family: var(--body-font);
 	font-size: var(--normal-font-size);
+	/* overflow-x: hidden; */
 }
 
 /*==================== REUSABLE CSS CLASSES ====================*/
@@ -105,12 +106,12 @@ body {
 
 .nav {
 	max-width: 968px;
-	height: var(--header-height);
+	/* height: var(--header-height); */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/* padding: 4rem 0 1rem; */
-	/* box-sizing: border-box; */
+	padding: 4rem 0 2rem;
+	box-sizing: border-box;
 }
 
 .nav_logo {
@@ -123,7 +124,7 @@ body {
 @media screen and (max-width: 767px) {
 	.nav_menu {
 		position: fixed;
-		top: 10%;
+		top: 15%;
 		background: var(--white-color);
 		box-shadow: 1px 1px 1px rgb(179, 179, 179);
 		padding: 1.5rem 2rem;
@@ -188,6 +189,13 @@ body {
 	background-repeat: no-repeat;
 	object-fit: contain;
 	margin-left: 10px;
+}
+
+.nav_item_arrow.arrow_down {
+	background-repeat: no-repeat;
+	object-fit: contain;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
 }
 
 .nav_item_arrow.arrow_up {
@@ -273,7 +281,7 @@ body {
 	padding: 0.5rem 1.5rem;
 	font-weight: 700;
 	border-radius: 100rem;
-	margin: 0.2rem;
+	margin: 0 0.2rem;
 	min-width: 130px;
 	cursor: pointer;
 	font-family: "Ubuntu";
@@ -356,15 +364,17 @@ body {
 }
 
 .home h1 {
-	font-size: 2.3rem;
-	font-weight: 700;
+	font-size: 2.1rem;
 	text-align: center;
+	font-weight: 700;
 	margin-bottom: 1.5rem;
 }
 
 .home p {
-	font-size: var(--normal-font-size);
+	font-size: 1.2rem;
 	margin-bottom: 3rem;
+	text-align: center;
+	line-height: 1.8rem;
 }
 
 .home_btns {
@@ -375,6 +385,12 @@ body {
 
 /* FUTURE */
 
+.future {
+	overflow: hidden;
+	width: 100%;
+	box-sizing: border-box;
+}
+
 .future_content {
 	gap: 3rem;
 	justify-items: center;
@@ -384,7 +400,7 @@ body {
 .future h2 {
 	text-align: center;
 	font-weight: 700;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	color: var(--very-dark-blue-primary-color);
 	margin-bottom: 2rem;
 }
@@ -392,7 +408,7 @@ body {
 .future h3 {
 	text-align: center;
 	font-weight: 700;
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	color: var(--very-dark-blue-primary-color);
 	margin-bottom: 1rem;
 }
@@ -406,8 +422,9 @@ body {
 
 .future img {
 	content: url("../images/illustration-editor-mobile.svg");
-	height: 20rem;
-	/* justify-self: center; */
+	height: 100%;
+	width: 100%;
+	justify-self: center;
 }
 
 /* INFRASTRUCTURES */
@@ -427,12 +444,18 @@ body {
 	margin-top: 5rem;
 }
 
+.infra_image {
+	max-width: 375px;
+}
+
 .infra img {
-	height: 25rem;
+	height: 64%;
 	position: absolute;
-	top: -45%;
+	top: -30%;
 	left: 0;
 	right: 0;
+	margin-left: auto;
+	margin-right: auto;
 	z-index: 2;
 	display: block;
 }
@@ -479,7 +502,8 @@ body {
 
 .simple img {
 	content: url("../images/illustration-laptop-mobile.svg");
-	height: 20rem;
+	height: 100%;
+	width: 100%;
 }
 
 /* FOOTER */
@@ -512,7 +536,7 @@ body {
 	margin: 1rem 0.5rem;
 }
 
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) {
 	.home_content {
 		flex-direction: column;
 		align-items: center;
@@ -526,7 +550,7 @@ body {
 		margin-bottom: 5rem;
 		justify-content: center;
 	}
-}
+} */
 
 @media screen and (min-width: 768px) {
 	.container {
@@ -678,8 +702,8 @@ body {
 	}
 
 	.future_content {
-		grid-template-rows: 1fr 2fr;
-		grid-template-columns: 1fr 2fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		grid-template-areas:
 			"future-content-1 future-img"
 			"future-content-2 future-img";
@@ -760,14 +784,32 @@ body {
 		padding: 0 5rem;
 	}
 
+	.infra_image {
+		max-width: 1440px;
+	}
+
+	/* .infra img {
+		height: 64%;
+		position: absolute;
+		top: -30%;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		z-index: 2;
+		display: block;
+	} */
+
 	.infra img {
-		height: 30rem;
+		height: 35rem;
 		position: absolute;
 		top: -40%;
 		left: 0;
 		right: 0;
 		z-index: 2;
 		display: block;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.infra h3 {
@@ -789,16 +831,14 @@ body {
 	/* SIMPLE */
 
 	.simple {
-		overflow: hidden;
 		position: relative;
-		padding: 6rem 4rem 0rem;
-		margin-top: 2rem;
-		box-sizing: border-box;
+		padding: 6rem 4rem 8rem;
+		/* margin-top: 2rem; */
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 70vh;
-		padding-top: 0;
+		/* height: 70vh; */
+		overflow: hidden;
 	}
 	.simple_content {
 		grid-template-rows: 1fr 1fr;
@@ -823,14 +863,19 @@ body {
 
 	.simple_image {
 		grid-row: 1 / span 2;
+		width: 100%;
+		/* background-color: aqua; */
 	}
 
 	.simple img {
 		content: url("../images/illustration-laptop-desktop.svg");
-		top: 0%;
-		left: -15%;
-		height: 40rem;
+		top: 3%;
+		left: -14%;
 		position: absolute;
+		height: 30rem;
+		width: 50%;
+		/* object-fit: contain; */
+		/* background: red; */
 	}
 
 	/* FOOTER */
